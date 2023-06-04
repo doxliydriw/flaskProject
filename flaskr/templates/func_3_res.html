@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+ {% block results %}
+<p>Results</p>
+     Total length: {{ qty[1] }}
+{#  <form name="genre" action="#" method="POST">#}
+{#  <label for="genre_c">Choose genre</label>#}
+{#  <select name=“genre_c” id="genre_c">#}
+{#      {% for genre in data %}#}
+{#          <option value=“{{ genre[0] }}”>{{ genre[0] }}</option>#}
+{#  {% endfor %} </select>#}
+{#  <input type="submit" value="Submit">#}
+{#  </form>#}
+     {% for song in data %}
+         <p>{{ song['id'] }} - Song name - {{ song['title'] }} Performed by - {{ song['artist'] }}, genre- {{ song['genre'] }} || length{{ song['length'] }}sec. </p>
+     {% endfor %}
+{% endblock %}

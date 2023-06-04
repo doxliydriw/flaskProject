@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+ {% block results %}
+<p>SONG LIST</p>
+     {% for song in data %}
+         <p>{{ song['id'] }} - Song name - {{ song['title'] }} Performed by - {{ song['artist'] }}, genre- {{ song['genre'] }} || length {{ song['length'] }} sec. </p>
+     {% endfor %}
+{% endblock %}

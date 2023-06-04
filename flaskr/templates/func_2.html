@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+ {% block results %}
+<p>Results</p>
+        {% for song in data %}
+            <p>{{ song }} tracks in list</p>
+        {% endfor %}
+{% endblock %}

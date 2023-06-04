@@ -1,0 +1,33 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - Flaskr</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<header>
+  <h1>Flask, SQLite HOMEWORK</h1>
+<a href="{{ url_for('hello') }}">Indext</a>
+{%  block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{ msg }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+{% if not g.db %}
+    <a href="{{ url_for('gen.generate') }}">Generate song list</a>
+{% endif %}
+</header>
+<nav>
+  {% if g.db %}
+      <ul>
+         <li>Вью функция должна выводить количество уникальных исполнителей (artist) из таблицы tracks.<a href="{{ url_for('done.names') }}">proceed</a>
+         <li>Вью функция должна выводить количество записей из таблицы tracks.<a href="{{ url_for('done.tracks') }}">proceed</a>
+         <li>Вью функция должна принимать название жанра трека и выводить количество записей этого жанра (genre) из таблицы tracks.<a href="{{ url_for('done.genre') }}">proceed</a>
+         <li>Вью функция должна выводить все названия треков (title) и соответствующую продолжительность трека в секундах(length) из таблицы tracks.<a href="{{ url_for('done.tracks_sec') }}">proceed</a>
+         <li>Вью функция должна выводить среднюю продолжительность трека и общую продолжительность всех треков в секундах из таблицы tracks.<a href="{{ url_for('done.statistic') }}">proceed</a>
+      </ul>
+  {% endif %}
+</nav>
+<section class="content">
+  {% block results %}{% endblock %}
+</section>
